@@ -1,0 +1,23 @@
+{{ with .Page }}
+  <div class="row mb-5">
+
+    <div class="col-12">
+      <h2>{{ .Title }}</h2>
+    </div>
+
+    <div class="col-12 text-center">
+      <small>
+        {{ .Date.Format .Site.Params.dateFormat }} | {{ T "readingTime" .ReadingTime }}
+      </small>
+    </div>
+
+    <div class="col-12">
+      {{ .Summary }}
+    </div>
+
+    <div class="col-12 text-end text-right">
+      <a class="link-primary" href="{{ .Permalink }}">{{ T "readMore" . }}</a>
+    </div>
+
+  </div>
+{{ end }}

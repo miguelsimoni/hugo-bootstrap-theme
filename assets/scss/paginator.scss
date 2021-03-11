@@ -1,0 +1,41 @@
+/*--- Bootstrap paginator customization ---*/
+ul.pagination {
+  justify-content: center !important;
+}
+
+ul.pagination > li > a {
+  // border: 0;
+  font-weight: bolder;
+}
+
+ul.pagination > li > a:hover {
+  background: none;
+}
+
+ul.pagination > li > a > span {
+  display: none;
+}
+
+ul.pagination > li > a[aria-label="First"]::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f100";
+}
+
+ul.pagination > li > a[aria-label="Previous"]::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f104";
+}
+
+ul.pagination > li > a[aria-label="Next"]::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f105";
+}
+
+ul.pagination > li > a[aria-label="Last"]::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f101";
+}

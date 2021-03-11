@@ -1,0 +1,80 @@
+{{ define "main" }}
+<article>
+  <div class="container">
+
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h1>{{ .Title }}</h1>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col">
+        {{ .Content }}
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col text-end text-right">
+        {{ T "by" }} <em>{{ if .Params.Author }}{{ .Params.Author }}{{ else }}{{ .Site.Params.Author }}{{ end }}</em>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<aside id="meta">
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col text-center">
+        <time datetime="{{ .Date }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
+        |
+        <span id="readingtime">{{ T "readingTime" .ReadingTime }}</span>
+      </div>
+    </div>
+
+    {{ with .Params.tags }}
+    <div id="tags" class="row mb-5">
+      <div class="col text-center">
+        {{ range . }}
+          <a href="{{ "tags/" | absURL }}{{ . | urlize }}" rel="tag">
+            <span class="badge bg-info text-dark">{{ . }}</span>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <!-- Sharing options -->
+
+    <!-- Comments -->
+    <div class="row mb-5">
+      <div class="col text-center">
+        {{ template "_internal/disqus.html" . }}
+        {{ partial "disqus.html" . }}
+      </div>
+    </div>
+
+    <!-- Article navigation -->
+    <div class="row mb-5">
+      <div class="col">
+        {{ with .PrevInSection }}
+        <i class="fas fa-angle-double-left text-primary"></i>
+        <a class="previous" href="{{ .Permalink | absLangURL }}" rel="prev">{{ .Title }}</a>
+        {{ end }}
+      </div>
+      <div class="col text-center">
+        <a href="{{ "/" | absLangURL }}">{{ T "goHome" }}</a>
+      </div>
+      <div class="col text-end text-right">
+        {{ with .NextInSection }}
+        <a class="next" href="{{ .Permalink | absLangURL }}" rel="next">{{ .Title }}</a>
+        <i class="fas fa-angle-double-right text-primary"></i>
+        {{ end }}
+      </div>
+    </div>
+
+  </div>
+</aside>
+{{ end }}

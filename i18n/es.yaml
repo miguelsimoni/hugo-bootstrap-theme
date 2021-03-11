@@ -1,0 +1,28 @@
+languages:
+  other: Idioma
+
+copyright:
+  other: Derechos Reservados
+
+wordCount:
+  one: 1 palabra
+  other: "{{ .Count }} palabras"
+
+readingTime:
+  one: ~Un minuto
+  other: "~{{ .Count }} minutos"
+
+readMore:
+  other: Leer más...
+
+goBack:
+  other: Volver
+
+goHome:
+  other: Ir al Inicio
+
+by:
+  other: "Por: "
+
+page_not_found:
+  other: Puede que esta no sea la página que estabas buscando...

@@ -1,0 +1,12 @@
+<div class="container">
+
+  {{ partial "header/subheader.html" . }}
+
+  <section id="homepage">
+    {{ .Render "section-header" }}
+    {{ range first 3 .Site.RegularPages }}
+      {{ .Render "summary" }}
+    {{ end }}
+  </section>
+
+</div>
