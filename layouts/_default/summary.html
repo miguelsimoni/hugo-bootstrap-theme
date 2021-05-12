@@ -7,7 +7,7 @@
 
     <div class="col-12 text-center">
       <small>
-        {{ .Date.Format .Site.Params.dateFormat }} | {{ T "readingTime" .ReadingTime }}
+        {{ .Date.Format .Site.Params.dateFormat }} | {{ T "reading_time" .ReadingTime }}
       </small>
     </div>
 
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-12 text-end text-right">
-      <a class="link-primary" href="{{ .Permalink | absLangURL }}">{{ T "readMore" . }}</a>
+      <a class="link-primary" href="{{ .Permalink | absLangURL }}">{{ T "read_more" . }}</a>
     </div>
 
   </div>

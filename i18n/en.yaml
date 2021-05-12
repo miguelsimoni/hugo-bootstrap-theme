@@ -1,24 +1,24 @@
-languages:
+language:
   other: Language
 
 copyright:
   other: Copyright
 
-wordCount:
+word_count:
   one: 1 word
   other: "{{ .Count }} words"
 
-readingTime:
+reading_time:
   one: ~One minute
   other: "~{{ .Count }} minutes"
 
-readMore:
+read_more:
   other: Read more...
 
-goBack:
+go_back:
   other: Go back
 
-goHome:
+go_home:
   other: Go Home
 
 by:

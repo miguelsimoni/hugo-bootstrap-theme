@@ -3,7 +3,7 @@
 
   {{ partial "head/favicons.html" . }}
 
-  <base href="{{ .Site.BaseURL }}">
+  <base href="{{ .Site.BaseURL | relLangURL }}">
 
   <title>{{ .Site.Title }}</title>
 

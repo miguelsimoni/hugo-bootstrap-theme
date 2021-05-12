@@ -30,7 +30,7 @@
       <div class="col text-center">
         <time datetime="{{ .Date }}">{{ .Date.Format .Site.Params.dateFormat }}</time>
         |
-        <span id="readingtime">{{ T "readingTime" .ReadingTime }}</span>
+        <span id="readingtime">{{ T "reading_time" .ReadingTime }}</span>
       </div>
     </div>
 
@@ -38,7 +38,7 @@
     <div id="tags" class="row mb-5">
       <div class="col text-center">
         {{ range . }}
-          <a href="{{ "tags/" | absURL }}{{ . | urlize }}" rel="tag">
+          <a href="{{ "/tags/" | absLangURL }}{{ . | urlize }}" rel="tag">
             <span class="badge bg-info text-dark">{{ . }}</span>
           </a>
         {{ end }}
@@ -65,7 +65,7 @@
         {{ end }}
       </div>
       <div class="col text-center">
-        <a href="{{ "/" | absLangURL }}">{{ T "goHome" }}</a>
+        <a href="{{ .Site.BaseURL | relLangURL }}">{{ T "go_home" }}</a>
       </div>
       <div class="col text-end text-right">
         {{ with .NextInSection }}
