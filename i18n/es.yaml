@@ -15,6 +15,12 @@ reading_time:
 read_more:
   other: Leer más...
 
+load_more:
+  other: "Cargar más..."
+
+loading:
+  other: Cargando...
+
 go_back:
   other: Volver
 

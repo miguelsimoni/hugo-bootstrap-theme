@@ -3,19 +3,34 @@
 
   {{ .Render "section-header" }}
 
-  <!-- Ranges through content/posts/*.md -->
-  {{ range .Paginator.Pages }}
-  <div class="row">
-    <article>
-      {{ .Render "summary" }}
-    </article>
-  </div>
-  {{ end }}
+  <div id="posts">
+    {{ $paginator := .Paginator }}
+    {{ range $paginator.Pages }}
+      <article>
+        {{ .Render "summary" }}
+      </article>
+    {{ end }}
 
-  <div class="row">
-    <div class="col">
-      {{ template "_internal/pagination.html" . }}
+    {{ if .Site.Params.pagination.loadMore }}
+      {{ if $paginator.HasNext }}
+      <div id="loadMore" class="row mb-5">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary"
+                  onclick="loadMoreHandler({{ .RelPermalink | relLangURL }},{{ add 1 $paginator.PageNumber }})">
+            <span>{{ T "load_more" }}</span>
+            <span class="visually-hidden">{{ T "loading" }}</span>
+            <span class="spinner-border spinner-border-sm visually-hidden" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      {{ end }}
+    {{ else }}
+    <div class="row">
+      <div class="col">
+        {{ template "_internal/pagination.html" . }}
+      </div>
     </div>
+    {{ end }}
   </div>
 
 </div>
