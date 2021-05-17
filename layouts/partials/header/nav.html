@@ -31,12 +31,14 @@
               </li>
             {{ end }}
           {{ end }}
+          {{ if .Site.Params.languagesMenuEnabled }}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{ T "language" . }}
             </a>
-            {{ partial "languages.html" . }}
+            {{ partial "header/languages.html" . }}
           </li>
+          {{ end }}
         </ul>
       </div>
     </div>

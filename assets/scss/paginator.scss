@@ -12,6 +12,14 @@ ul.pagination > li > a:hover {
   background: none;
 }
 
+ul.pagination > li > a:focus {
+  box-shadow: 0 0 0 0;
+}
+
+ul.pagination > li.active {
+  z-index: 0; // default 3
+}
+
 ul.pagination > li > a > span {
   display: none;
 }
