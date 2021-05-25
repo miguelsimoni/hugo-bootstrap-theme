@@ -1,8 +1,6 @@
-language:
-  other: Idioma
+language: Idioma
 
-copyright:
-  other: Derechos Reservados
+copyright: Derechos Reservados
 
 word_count:
   one: 1 palabra
@@ -12,23 +10,37 @@ reading_time:
   one: ~Un minuto
   other: "~{{ .Count }} minutos"
 
-read_more:
-  other: Leer más...
+load_more: Cargar más...
 
-load_more:
-  other: "Cargar más..."
+loading: Cargando...
 
-loading:
-  other: Cargando...
+read_more: Leer más...
 
-go_back:
-  other: Volver
+go_back: Volver
 
-go_home:
-  other: Ir al Inicio
+go_home: Ir al Inicio
 
-by:
-  other: "Por: "
+by: "Por: "
 
-page_not_found:
-  other: Puede que esta no sea la página que estabas buscando...
+page_not_found: Puede que esta no sea la página que estabas buscando...
+
+# contact
+contact_name: Nombre
+
+contact_email: Email
+
+contact_message: Mensaje
+
+contact_subject: Mensaje desde el website
+
+contact_valid_feedback: Se ve bien!
+
+contact_invalid_feedback: "Por favor, escribe tu {{ .campo }}."
+
+send: Enviar
+
+sending: Enviando...
+
+thanks: ¡Gracias!
+
+thanks_message: Gracias por contactarnos.
