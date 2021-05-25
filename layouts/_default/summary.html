@@ -2,7 +2,9 @@
   <div class="row mb-5 text-center">
 
     <div class="col-md-8 offset-md-2">
-      <h2>{{ .Title }}</h2>
+      <a class="link-primary text-decoration-none" href="{{ .Permalink | absLangURL }}">
+        <h2>{{ .Title }}</h2>
+      </a>
     </div>
 
     <div class="col-md-8 offset-md-2 mb-3 text-center">
@@ -16,7 +18,7 @@
     </div>
 
     <div class="col-md-8 offset-md-2 text-end text-right">
-      <a class="link-primary" href="{{ .Permalink | absLangURL }}">{{ T "read_more" . }}</a>
+      <a class="link-primary text-decoration-none" href="{{ .Permalink | absLangURL }}">{{ T "read_more" . }}</a>
     </div>
 
   </div>

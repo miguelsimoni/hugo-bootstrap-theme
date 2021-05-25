@@ -39,7 +39,7 @@
       <div class="col text-center">
         {{ range . }}
           <a href="{{ "tags/" | absLangURL }}{{ . | urlize }}" rel="tag">
-            <span class="badge bg-info text-dark">{{ . }}</span>
+            <span class="badge bg-info">{{ . }}</span>
           </a>
         {{ end }}
       </div>
