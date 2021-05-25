@@ -1,0 +1,9 @@
+<ul id="themeSelector" class="dropdown-menu scrollable-menu" aria-labelledby="themesNavbarDropdownMenuLink">
+  {{ range .Site.Data.themes }}
+    <li>
+      <a class="dropdown-item" href="" data-theme="{{ . }}" data-url="{{ $.Site.BaseURL }}" onclick="selectTheme(this,event);">
+        {{ . }}
+      </a>
+    </li>
+  {{ end }}
+</ul>
