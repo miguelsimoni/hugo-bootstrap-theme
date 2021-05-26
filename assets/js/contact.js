@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initContactForm() {
   var form = document.querySelector("form");
   if (form) {
     form.addEventListener("submit", sendEmail);    
   }
-});
+}
 
 function sendEmail(e) {
   e.preventDefault();

@@ -1,7 +1,9 @@
-<ul class="dropdown-menu" aria-labelledby="languagesNavbarDropdownMenuLink">
+<ul id="languageSelector" class="dropdown-menu" aria-labelledby="languagesNavbarDropdownMenuLink">
   {{ range .Site.Home.AllTranslations }}
     <li>
-      <a class="dropdown-item" href="{{ .Permalink | absLangURL }}">{{ .Language.LanguageName }}</a>
+      <a class="dropdown-item" href="{{ .Permalink | absLangURL }}" data-lang-code="{{ .Language.Lang }}">
+        {{ .Language.LanguageName }}
+      </a>
     </li>
   {{ end }}
 </ul>
