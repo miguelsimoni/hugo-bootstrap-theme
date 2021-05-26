@@ -1,8 +1,8 @@
 <!-- Bootstrap 5 CSS -->
 {{ if .Site.Params.theme.static }}
-<link rel="stylesheet" href="/vendor/bootswatch/css/{{ .Site.Params.theme.static }}.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ printf "vendor/bootswatch/css/%s.min.css" .Site.Params.theme.static | absURL }}">
 {{ else }}
-<link rel="stylesheet" href="/vendor/bootswatch/css/default.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ "vendor/bootswatch/css/default.min.css" | absURL }}">
 {{ end }}
 
 {{ if .Site.Params.theme.selector }}
@@ -10,7 +10,7 @@
   var activeTheme = localStorage.getItem("activeTheme");
   if (activeTheme) {
     var themeLink = document.querySelector("link[href*='bootswatch']");
-    themeLink.setAttribute("href", "/vendor/bootswatch/css/" + activeTheme + ".min.css");
+    themeLink.setAttribute("href", "{{ "" | absURL }}vendor/bootswatch/css/" + activeTheme + ".min.css");
   }
 </script>
 {{ end }}
@@ -19,5 +19,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Site CSS -->
-{{ $css := resources.Match "scss/**.scss" | resources.Concat "css/bundle.scss" | resources.ExecuteAsTemplate "bundle.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $css := resources.Match "scss/**.scss" | resources.Concat "css/bundle.scss" | resources.ExecuteAsTemplate "css/bundle.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}">

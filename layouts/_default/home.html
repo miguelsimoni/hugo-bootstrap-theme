@@ -4,7 +4,7 @@
 
   <section id="homepage">
     {{ .Render "section-header" }}
-    {{ range first 3 .Site.RegularPages }}
+    {{ range first 3 (where .Site.RegularPages "Section" "post") }}
       {{ .Render "summary" }}
     {{ end }}
   </section>

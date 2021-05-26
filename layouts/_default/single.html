@@ -65,7 +65,7 @@
         {{ end }}
       </div>
       <div class="col text-center">
-        <a href="{{ .Site.BaseURL | relLangURL }}">{{ T "go_home" }}</a>
+        <a href="{{ "" | absLangURL }}" rel="home">{{ T "go_home" }}</a>
       </div>
       <div class="col text-end text-right">
         {{ with .NextInSection }}
