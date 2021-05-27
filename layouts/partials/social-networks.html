@@ -1,8 +1,8 @@
 {{ if .Site.Params.social }}
-<div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+<div class="d-flex justify-content-center mt-5 pt-5">
   <div class="row">
     {{ range .Site.Params.social }}
-    <div class="col">
+    <div class="col text-center">
       <a class="text-secondary" href="{{ .link }}" alt="{{ .network }}">
         <i class="{{ .icon }}"></i>
       </a>

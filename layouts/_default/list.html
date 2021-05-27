@@ -23,6 +23,12 @@
           </button>
         </div>
       </div>
+      {{ else }}
+      <div class="row mb-5">
+        <div class="col text-center">
+          <a href="{{ "" | absLangURL }}" rel="home">{{ T "go_home" }}</a>
+        </div>
+      </div>
       {{ end }}
     {{ else }}
     <div class="row">
