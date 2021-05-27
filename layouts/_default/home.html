@@ -4,9 +4,32 @@
 
   <section id="homepage">
     {{ .Render "section-header" }}
-    {{ range first 3 (where .Site.RegularPages "Section" "post") }}
-      {{ .Render "summary" }}
-    {{ end }}
+
+    <div class="row">
+      {{ range first 3 (where .Site.RegularPages "Section" "post") }}
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ .Title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ .Date.Format (.Site.Params.dateFormat | default "Jan 2, 2006") }} | {{ T "reading_time" .ReadingTime }}
+              </h6>
+              <div class="card-text h-50">
+                {{ .Summary }}
+              </div>
+              <div class="text-end">
+                <a href="{{ .Permalink | absLangURL }}" class="card-link">
+                  {{ T "read_more" }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ partial "social-networks.html" . }}
+
   </section>
 
 </div>

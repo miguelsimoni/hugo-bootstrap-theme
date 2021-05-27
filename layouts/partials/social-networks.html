@@ -1,0 +1,13 @@
+{{ if .Site.Params.social }}
+<div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+  <div class="row">
+    {{ range .Site.Params.social }}
+    <div class="col">
+      <a class="text-secondary" href="{{ .link }}" alt="{{ .network }}">
+        <i class="{{ .icon }}"></i>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
