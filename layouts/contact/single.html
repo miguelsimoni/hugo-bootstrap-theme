@@ -1,5 +1,5 @@
 {{ define "main"}}
-<section id="contact">
+<section id="contact" class="form">
   <div class="container">
     <div class="row">
       <div class="col text-center">
@@ -14,13 +14,13 @@
 
     <div class="row">
       <div class="col d-grid col-md-8 mx-auto">
-        <form action="{{ .Site.Params.contact.formAction }}" method="POST" class="needs-validation" novalidate>
+        <form action="{{ .Site.Params.form.contact.action }}" method="POST" class="needs-validation" novalidate>
     
           <div class="row">
             <div class="col-md mb-3">
               <div class="form-floating">
                 <input type="text" class="form-control" id="name" name="name" placeholder="{{ T "contact_name" }}" title="{{ T "contact_name" }}" 
-                       pattern="{{ .Site.Params.contact.validation.namePattern }}" required>
+                       pattern="{{ .Site.Params.form.validation.namePattern }}" required>
                 <label for="name">{{ T "contact_name" }}</label>
                 <div class="valid-feedback">{{ T "contact_valid_feedback" }}</div>
                 <div class="invalid-feedback">{{ T "contact_invalid_feedback" (dict "field" "name" "campo" "nombre") }}</div>
@@ -30,7 +30,7 @@
             <div class="col-md mb-3">
               <div class="form-floating">
                 <input type="email" class="form-control" id="email" name="email" placeholder="{{ T "contact_email" }}" title="{{ T "contact_email" }}" 
-                       pattern="{{ .Site.Params.contact.validation.emailPattern }}" required>
+                       pattern="{{ .Site.Params.form.validation.emailPattern }}" required>
                 <label for="email">{{ T "contact_email" }}</label>
                 <div class="valid-feedback">{{ T "contact_valid_feedback" }}</div>
                 <div class="invalid-feedback">{{ T "contact_invalid_feedback" (dict "field" "email" "campo" "email") }}</div>
@@ -48,7 +48,15 @@
               </div>
             </div>
           </div>
-    
+
+          {{ if .Site.Params.form.recaptcha.v2.siteKey }}
+          <div class="row">
+            <div class="col mt-2 mb-4 d-flex justify-content-center">
+              <div class="g-recaptcha" data-sitekey="{{ .Site.Params.form.recaptcha.v2.siteKey }}"></div>
+            </div>
+          </div>
+          {{ end }}
+
           <div class="row">
             <div class="d-grid col-md-3 mx-auto">
               <button type="submit" class="btn btn-lg btn-primary">
@@ -68,7 +76,7 @@
   </div>
 </section>
 
-<section id="thanks" class="visually-hidden">
+<section id="contact-thanks" class="thanks visually-hidden">
   <div class="container">
     <div class="row m-5">
       <div class="col text-center">
@@ -78,6 +86,26 @@
     <div class="row m-5">
       <div class="col text-center">
         <p>{{ T "thanks_message" }}</p>
+      </div>
+    </div>
+    <div class="row m-5">
+      <div class="col text-center">
+        <a class="btn btn-primary" href="{{ .Site.BaseURL | relLangURL }}">{{ T "go_home" }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-error" class="error visually-hidden">
+  <div class="container">
+    <div class="row m-5">
+      <div class="col text-center">
+        <h1>{{ T "error" }}</h1>
+      </div>
+    </div>
+    <div class="row m-5">
+      <div class="col text-center">
+        <p>{{ T "error_message" }}</p>
       </div>
     </div>
     <div class="row m-5">

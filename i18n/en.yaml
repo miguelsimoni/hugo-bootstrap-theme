@@ -46,3 +46,7 @@ sending: Sending...
 thanks: Thank you!
 
 thanks_message: Thank you for contact us.
+
+error: Oops!
+
+error_message: The message couldn't be sent.
